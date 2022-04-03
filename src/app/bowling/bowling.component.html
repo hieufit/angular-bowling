@@ -1,0 +1,31 @@
+<div class="container-fluid wrapper">
+  <div class="container scoreboard animated flipInX">
+    <div class="row header">
+      <div class="col-md-10 col-xs-10">Bowling pin calculator</div>
+      <div (click)="restartFrames()" class="refresh col-md-2 col-xs-2" [ngClass]="{ 'spin': loading }"><span
+        class="glyphicon glyphicon-refresh"></span></div>
+    </div>
+    <div class="row sub-header">
+      <div *ngFor="let s of frames; let i = index;" [ngClass]="{
+				'offset-md-1':   (i === 0),
+				'col-md-2 col-xs-2': (i === frames.length-1),
+				'col-md-1 col-xs-1': (i >= 0 && i < frames.length-1)
+			}">{{ i + 1 }}</div>
+    </div>
+    <div class="row frames">
+      <div class="col-md-1 col-xs-1 name">Player 1</div>
+
+      <div *ngFor="let f of frames; let i = index" class="frame" [ngClass]="{
+				'col-md-1 col-xs-1': (i >= 0 && i < frames.length-1),
+				'col-md-2 col-xs-2': (i === frames.length-1),
+				'active':            (i === activeFrame)
+			}">
+        <div class="first-roll">{{ displayValue(f, 1) }}</div>
+        <div class="second-roll">{{ displayValue(f, 2) }}</div>
+        <div class="third-roll">{{ displayValue(f, 3) }}</div>
+        <div class="score">{{ displayScore(f, i) }}</div>
+      </div>
+    </div>
+  </div>
+  <app-bowling-form [frame]="frameForm" [currentFrame]="activeFrame" (onSave)="saveFrame($event)"></app-bowling-form>
+</div>

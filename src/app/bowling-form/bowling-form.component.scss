@@ -1,0 +1,37 @@
+$FORM_SHADOW: 0px 5px 15px 0 rgba(#000, 0.25);
+$FORM_BORDER: #0D47A1;
+$FORM_BG: white;
+
+.inputs {
+  width: 50%;
+  margin-top: 100px;
+  padding: 20px 50px 40px;
+  box-shadow: $FORM_SHADOW;
+  background: $FORM_BG;
+  border-radius: 5px;
+
+  .roll {
+    margin-bottom: 15px;
+  }
+
+  .buttons {
+    position: relative;
+
+    .btn {
+      width: 45%;
+
+      &:last-child {
+        position: absolute;
+        right: 0;
+        border-color: $FORM_BORDER;
+        background-color: $FORM_BORDER;
+      }
+    }
+
+    // .btn
+  }
+
+  // .buttons
+}
+
+// .inputs

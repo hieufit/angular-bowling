@@ -1,0 +1,30 @@
+<div class="container inputs">
+  <form class="form" (ngSubmit)="onSubmit($event)" #frameForm="ngForm">
+    <div class="row">
+      <h4>Submit scores for the current frame:</h4>
+    </div>
+    <div class="row roll">
+      <div class="input-group">
+        <span class="input-group-addon">First Score</span>
+        <input [(ngModel)]="frame.firstRoll" name="FirstRoll" type="number" class="form-control first" placeholder="e.g. 8" min="0" max="10" required>
+      </div>
+    </div>
+    <div class="row roll">
+      <div class="input-group">
+        <span class="input-group-addon">Second Score</span>
+        <input [(ngModel)]="frame.secondRoll" name="SecondRoll" type="number" class="form-control second" placeholder="e.g. 2" min="0" max="10" required>
+      </div>
+    </div>
+    <div *ngIf="frameIndex === 9" class="row roll">
+      <div class="input-group">
+        <span class="input-group-addon">Third Score</span>
+        <input [(ngModel)]="frame.thirdRoll" name="SecondRoll" type="number" class="form-control third" placeholder="e.g. 10" min="0" max="10" required>
+      </div>
+    </div>
+    <div class="row buttons">
+      <button type="reset" class="btn col-md-6 col-xs-6 btn-danger">Reset</button>
+      <button type="submit" class="btn col-md-6 col-xs-6 btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+<div toastContainer></div>
